@@ -1,8 +1,9 @@
 body {
     margin: 0;
+    padding: 0;
     background: #0B3D91;
     color: white;
-    width: 100%;
+    width: 99%;
 }
 
 #content-box {
@@ -25,8 +26,8 @@ body {
 }
 
 #logo {
-    width: 42px;
-    height: 35px;
+    width: 36px;
+    height: 30px;
 }
 
 #footer {
