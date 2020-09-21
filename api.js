@@ -28,6 +28,12 @@ async function getImage() {
             //Image Id
             id.innerHTML = `Photo Id: ${randImageData.nasa_id}`;
 
+            /*
+            
+            Add Information of photographer if availabe
+            
+            */
+
             //Json link containing image sizes/links
             const randImageJson = randImage.href;
             
