@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    background: #0B3D91;
+    color: white;
+}
+
+canvas {
+    display: block;
+}
+
+#title {
+    margin-top: 25px;
+}
+
+#nasa-img {
+    max-height: 615px;
+    max-width: 300px;
+}
+
+#description {
+    padding-right: 100px;
+}
+
+#logo {
+    width: 42px;
+    height: 35px;
+}
+
+#content-box {
+    margin-top: 100px;
+}
