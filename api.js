@@ -55,8 +55,6 @@ async function getImage() {
                 };
                 //Update image src, link to orig
                 image.src = `${randImageMed}`;
-                strong.innerHTML = 'Link to full resolution photo:';
-                link.innerHTML = `${randImageOrig}`;
                 link.href = randImageOrig;
             }
         } else {
