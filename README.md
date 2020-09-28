@@ -16,3 +16,4 @@ I realised that the archive I am pulling from only contains 100 images. Will hop
 Idea's for future changes:
 * Make the page reload itself every 30 seconds.
 * Allow for videos & audio as well.
+* Search through the entire image archive.
