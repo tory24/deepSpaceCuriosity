@@ -8,7 +8,7 @@ const description = document.getElementById('photo-desc');
 const strong = document.getElementById('fullRes');
 const link = document.getElementById('photo-link');
 //Url
-const imageApiUrl = "https://images-api.nasa.gov/search?media_type=image";
+const imageApiUrl = `https://images-api.nasa.gov/search?media_type=image&page=${Math.floor(Math.random()*101)}`;
 
 async function getImage() {
     try {
@@ -19,20 +19,6 @@ async function getImage() {
             //Find a random Image
             const randImage = jsonResponse.collection.items[ Math.floor(Math.random() * jsonResponse.collection.items.length)];
             const randImageData = randImage.data[0];
-            //Title of Image
-            title.innerHTML = `${randImageData.title}`;
-            //Date of Image
-            date.innerHTML = `${randImageData.date_created.slice(0,10).split('-').reverse().join('-')}`;
-            //Description of Image
-            description.innerHTML = `${randImageData.description}`;
-            //Image Id
-            id.innerHTML = `Photo Id: ${randImageData.nasa_id}`;
-
-            /*
-            
-            Add Information of photographer if availabe
-            
-            */
 
             //Json link containing image sizes/links
             const randImageJson = randImage.href;
@@ -41,7 +27,7 @@ async function getImage() {
             if(newResponse.ok) {
                 const newJson = await newResponse.json();
                 
-                //Image variable declarations w/no value
+                //Global Image variable declarations
                 var randImageMed;
                 var randImageOrig;
                 //If the href array is larger than 4, then use the medium size image
@@ -57,6 +43,20 @@ async function getImage() {
                 image.src = `${randImageMed}`;
                 link.href = randImageOrig;
             }
+            //Title of Image
+            title.innerHTML = `${randImageData.title}`;
+            //Date of Image
+            date.innerHTML = `${randImageData.date_created.slice(0,10).split('-').reverse().join('-')}`;
+            //Description of Image
+            description.innerHTML = `${randImageData.description}`;
+            //Image Id
+            id.innerHTML = `Photo Id: ${randImageData.nasa_id}`;
+
+            /*
+            
+            Add Information of photographer if availabe
+            
+            */
         } else {
             throw "Problem Loading Page :(";
         }
