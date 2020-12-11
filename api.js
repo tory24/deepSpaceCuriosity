@@ -10,6 +10,8 @@ const link = document.getElementById('photo-link');
 //Url
 const imageApiUrl = `https://images-api.nasa.gov/search?media_type=image&page=${Math.floor(Math.random()*101)}`;
 
+var newImageButton = document.getElementById('new-image');
+newImageButton.addEventListener('click', 
 async function getImage() {
     try {
         let response = await fetch(imageApiUrl);
@@ -41,6 +43,7 @@ async function getImage() {
                 };
                 //Update image src, link to orig
                 image.src = `${randImageMed}`;
+                link.innerHTML = 'Link to full resolution photo';
                 link.href = randImageOrig;
             }
             //Title of Image
@@ -63,5 +66,4 @@ async function getImage() {
     } catch (error) {
         title.textContent = error;
     } 
-}
-getImage();
+});

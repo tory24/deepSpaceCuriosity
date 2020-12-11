@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
     color: white;
     width: 99%;
     background-color: #0B3D91;
@@ -16,7 +15,14 @@ body {
 }
 
 #content-box {
-    margin-top: 50px;
+    margin: 50px 0px;
+    display: flex;
+}
+
+#nasa-image {
+    max-width: 600px;
+    max-height: 800px;
+    border-radius: 5px;
 }
 
 .center {
@@ -25,18 +31,22 @@ body {
     width: 90%;
 }
 
-#description {
+#description, #new-image {
     padding: 1px 20px;
     padding-bottom: 9px;
     background-color:  #0b2450;
     border-radius: 10px;
     max-width: 45%;
-
 }
 
 #logo {
     width: 36px;
     height: 30px;
+}
+
+.wrapper {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 #footer {
