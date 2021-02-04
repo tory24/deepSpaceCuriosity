@@ -18,8 +18,9 @@ Also space & science are pretty darn cool.
 
 Edit:
 * Updated it to search through the full 100 page image archive
-* Added a button to find new images, still need to pretty it up though.
+* Added a button to find new images.
 
 Idea's for future changes:
-* Make the page reload itself every 30 seconds.
-* Allow for videos & audio as well.
+* Learn how to make the page reload itself every 15 seconds.
+* Allow for video & audio files as well.
+* Learn how to make the page load faster.
