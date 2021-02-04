@@ -9,6 +9,11 @@ I have already built one app that uses an API, however I mostly followed someone
 
 Also space & science are pretty darn cool.
 
+### Preview
+
+![Preview Gif](preview.gif)
+
+
 ### Notes
 
 Edit:

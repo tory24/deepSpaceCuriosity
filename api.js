@@ -7,11 +7,11 @@ const id = document.getElementById('id');
 const description = document.getElementById('photo-desc');
 const strong = document.getElementById('fullRes');
 const link = document.getElementById('photo-link');
+const newImageButton = document.getElementById('new-image');
 //Url
-const imageApiUrl = `https://images-api.nasa.gov/search?media_type=image&page=${Math.floor(Math.random()*101)}`;
+const imageApiUrl = `https://images-api.nasa.gov/search?media_type=image&page=${Math.floor(Math.random()*100)}`;
 
-var newImageButton = document.getElementById('new-image');
-newImageButton.addEventListener('click', 
+
 async function getImage() {
     try {
         let response = await fetch(imageApiUrl);
@@ -23,10 +23,9 @@ async function getImage() {
             const randImageData = randImage.data[0];
 
             //Json link containing image sizes/links
-            const randImageJson = randImage.href;
             
-            let newResponse = await fetch(randImageJson);
-            if(newResponse.ok) {
+            let newResponse = await fetch(randImage.href);
+            //if(newResponse.ok) {
                 const newJson = await newResponse.json();
                 
                 //Global Image variable declarations
@@ -34,7 +33,7 @@ async function getImage() {
                 var randImageOrig;
                 //If the href array is larger than 4, then use the medium size image
                 if(newJson.length > 4) {
-                    randImageMed = newJson[3]
+                    randImageMed = newJson[4]
                     randImageOrig = newJson[0];
                 //Else only images of lower res are available, so make both the original size
                 } else {
@@ -42,10 +41,10 @@ async function getImage() {
                     randImageOrig = newJson[0];
                 };
                 //Update image src, link to orig
-                image.src = `${randImageMed}`;
+                image.src = randImageMed;
                 link.innerHTML = 'Link to full resolution photo';
                 link.href = randImageOrig;
-            }
+            //}
             //Title of Image
             title.innerHTML = `${randImageData.title}`;
             //Date of Image
@@ -56,14 +55,17 @@ async function getImage() {
             id.innerHTML = `Photo Id: ${randImageData.nasa_id}`;
 
             /*
-            
             Add Information of photographer if availabe
-            
             */
+        
         } else {
             throw "Problem Loading Page :(";
         }
     } catch (error) {
         title.textContent = error;
     } 
-});
+};
+
+window.onload = () => {
+    getImage();
+}
